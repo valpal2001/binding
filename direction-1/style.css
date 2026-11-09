@@ -8,6 +8,13 @@
 	font-display: swap;
 }
 
+
 body{
+	background-color:papayawhip;
+	color:darkred;
+}
+
+h2{
 	font-family: "Osaka", sans-serif;
+	color:darkslategray;
 }
