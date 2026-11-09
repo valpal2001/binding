@@ -1,9 +1,13 @@
-body{
+
 @font-face {
 /*Osaka-Sans Serif may be downloaded and used free of charge for both personal and commercial use, as long as the usage is not racist or illegal.*/
 	font-family: "Osaka";
 	src: url("../fonts/osaka-re.ttf") format("truetype");
 	font-weight: normal;
 	font-style: normal;
-	font-display: swap;}
+	font-display: swap;
+}
+
+body{
+	font-family: "Osaka", sans-serif;
 }
