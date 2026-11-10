@@ -14,7 +14,78 @@ body{
 	color:maroon;
 }
 
+article {
+	max-width: 38rem;
+	margin: 0 auto;
+}
+
+/*Header styling*/
+header {
+	margin-bottom: 4rem;
+}
+
+hgroup p {
+	margin-bottom: 0.75rem;
+}
+
+h1 {
+	line-height: 1.15;
+	margin-bottom: 1.5rem;
+}
+
+/*sections styling*/
+section {
+	margin-bottom: 3.5rem;
+}
+
 h2{
 	font-family: "Osaka", sans-serif;
 	color:darkslategray;
+}
+
+h3 {
+	margin-top: 1.5rem;
+	margin-bottom: 0.5rem;
+}
+
+/*footer and bilbiography*/
+.bibliography ol {
+	list-style: none;
+	counter-reset: ref;
+	padding: 0;
+	margin: 0;
+}
+
+.bibliography li {
+	counter-increment: ref;
+	position: relative;
+	padding-left: 3em;
+	margin-bottom: 0.75em;
+	font-size: 0.875rem;
+	line-height: 1.5;
+	overflow-wrap: anywhere;
+}
+
+.bibliography li::before {
+	content: "[" counter(ref) "]";
+	position: absolute;
+	left: 0;
+	font-variant-numeric: tabular-nums;
+}
+
+footer {
+	margin-top: 5rem;
+	padding-top: 2rem;
+	border-top: 1px solid;
+}
+
+/*responsive design*/
+@media (max-width: 600px) {
+	body {
+		padding: 2.5rem 1.25rem;
+	}
+
+	header {
+		margin-bottom: 3rem;
+	}
 }
