@@ -24,6 +24,8 @@
 	/* Lines */
 	--rule-thin: 1px;
 	--rule-thick: 3px;
+	/*page edges*/
+	--gutter: 2rem;
 }
 
 /*main section*/
@@ -53,4 +55,22 @@ h1 {
 	font-weight: var(--weight-display);
 	line-height: var(--leading-tight);
 	text-wrap: balance;
+}
+
+body {
+	padding-inline: var(--gutter);
+}
+
+/* Top bar*/
+.topbar {
+	display: grid;
+	grid-template-columns: 1fr auto;
+	align-items: baseline;
+	padding-block: 1lh;
+	border-block-end: var(--rule-thin) solid currentColor;
+	text-transform: uppercase;
+
+	a {
+		color: inherit;
+	}
 }

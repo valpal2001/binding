@@ -31,7 +31,6 @@
 	--space-xl: calc(var(--space) * 3);
 
 /* Page edges */
-	--gutter: var(--space);
 	--rule: 1px;
 
 }
@@ -55,23 +54,13 @@ body {
 
 /*top bar*/
 .topbar {
-	display: grid;
-	grid-template-columns: 1fr auto;
 	font-family: var(--mono);
 	font-size: var(--size-label);
 	font-weight: var(--weight-medium);
-	border-block-end: var(--rule) solid var(--ink);
-	padding-block: var(--space-l) var(--space);
 }
-
-.topbar a {
-	color: inherit;
-}
-
 
 /*main text*/
 article {
-	padding-inline: var(--gutter);
 	font-size: var(--size-body);
 	line-height: 1.55;
 }
