@@ -1,42 +1,41 @@
-
-@import url("https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter+Tight:wght@600;800&family=Inter:ital,wght@0,400;0,600;1,400&display=swap");
 
 :root {
-	font-size: 1.0625rem;
+	font-size: 1rem;
 	line-height: var(--leading);
-	--leading: 1.45;
-	--leading-tight: 1;
+	--leading: 1.5;
 
 	--ratio: 1.5;
-	--step--1: calc(1rem / var(--ratio));
-	--step-0: 1rem;
-	--step-1: calc(var(--step-0) * var(--ratio));
+	--step-1: calc(1rem * var(--ratio));
 	--step-2: calc(var(--step-1) * var(--ratio));
 	--step-3: calc(var(--step-2) * var(--ratio));
-	--step-4: calc(var(--step-3) * var(--ratio));
 
-	--display: "Alfa Slab One", Rockwell, serif;
-	--text: "PT Serif", Georgia, serif;
-	--tracking: 0.08em;
+	--display: "Inter Tight", system-ui, sans-serif;
+	--text: "Inter", system-ui, sans-serif;
+	--tracking: -0.03em;
+	--hairline: 1px;
 
-	--newsprint: #ece6d6;
-	--ink: #151515;
-	--spot: #1f3fbf;
+	--paper: #ffffff;
+	--ink: #000000;
+	--ink-soft: #6b6b6b;
+	--grid: #ececec;
+	--highlight: #fff200;
 }
 
 body {
-	background-color: var(--newsprint);
+	background-color: var(--paper);
+	background-image: repeating-linear-gradient( /*i made this effect with this as the foundation: https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/gradient/repeating-linear-gradient*/ /*this one makes the line a https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Images/Using_gradients*/
+		to bottom,
+			transparent var(--rule-start), var(--grid) 0 1rlh
+	);
 	color: var(--ink);
 	font-family: var(--text);
-	padding-block: 1rlh;
-	padding-inline: 1rem;
+	padding: 2rlh 1rem;
 }
 
-/*adding padding to paragraphs that sit below one*/
 p + p {
-	margin-top: 0.5rlh;
+	margin-top: 1rlh;
 }
-
 
 cite {
 	font-style: italic;
@@ -48,94 +47,87 @@ sup {
 }
 
 a {
-	color: var(--spot);
+	color: inherit;
 }
 
-header {
-	padding-block: 1rlh;
-	margin-bottom: 1rlh;
-	border-block: thick double var(--ink);
+/* Headings*/
+h1,
+h2 {
+	font-family: var(--display);
+	font-weight: 800;
+	letter-spacing: var(--tracking);
+	text-transform: lowercase;
 }
 
 h1 {
-	font-family: var(--display);
-	font-weight: normal;
-	line-height: var(--leading-tight);
-	font-size: var(--step-2);
-	margin-block: 0.5rlh;
-}
-
-h2 {font-family: var(--display);
-	font-weight: normal;
-	line-height: var(--leading-tight);
-	font-size: var(--step-1);
-	background-color: var(--spot);
-	color: var(--newsprint);
-	padding: 0.5rlh 0.5rem;
-	margin-bottom: 0.5rlh;
-}
-
-.topbar {
-	font-family: var(--display);
-	font-size: var(--step--1);
-	letter-spacing: var(--tracking);
-	color: var(--spot);
-	border-block-end: thick double var(--ink);
-}
-
-
-hgroup p,
-header > p,
-h3,
-footer h2 {
-	font-family: var(--display);
-	font-size: var(--step--1);
-	letter-spacing: var(--tracking);
-	text-transform: uppercase;
-	color: var(--spot);
-}
-
-/*adding a double dash divider*/
-section + section,
-footer {
-	padding-top: 1rlh;
-	border-top: thick double var(--ink);
-}
-
-section ul li {
-	display: inline;
-	font-weight: 700;
-}
-
-/*a dash after each keyword*/
-section ul li:not(:last-child)::after {
-	content: " /";
-	color: var(--spot);
-}
-
-.bibliography h2 {
-	background-color: var(--ink);
-}
-
-.bibliography ol {
-	list-style: decimal;
-	padding-left: 1rlh;
-	font-size: var(--step--1);
-}
-
-footer h2 {
-	background-color: transparent;
-	padding: 0;
-}
-
-section {
-	margin-bottom: 1rlh;
+	font-size: var(--step-3);
+	line-height: 2rlh;
+	margin-block: 1rlh 2rlh;
 }
 
 h2 {
 	font-size: var(--step-1);
-	background-color: var(--spot);
-	color: var(--newsprint);
-	padding: 0.5rlh 0.5rem;
-	margin-bottom: 0.5rlh;
+	line-height: 1rlh;
+	margin-bottom: 1rlh;
+}
+
+hgroup p,
+h3,
+footer h2,
+header > p {
+	font-family: var(--display);
+	font-size: 1rem;
+	font-weight: 600;
+	letter-spacing: normal;
+	text-transform: none;
+}
+
+hgroup p,
+h3,
+footer h2 {
+	color: var(--ink-soft);
+}
+
+header {
+	margin-bottom: 3rlh;
+}
+
+section {
+	margin-bottom: 3rlh;
+}
+
+h3 {
+	margin-top: 1rlh;
+}
+
+/*highlighter */
+section p a,
+section ul li {
+	background-color: var(--highlight);
+	font-weight: 600;
+	text-decoration: none;
+}
+
+section ul li {
+	display: inline;
+}
+
+section ul li:not(:last-child)::after {
+	content: " /";
+	background-color: var(--paper);
+}
+
+/*bibliography and footer*/
+.bibliography ol {
+	list-style: decimal;
+	padding-left: 1rlh;
+	color: var(--ink-soft);
+}
+
+footer {
+	color: var(--ink-soft);
+}
+
+footer h2 {
+	margin-bottom: 0;
 }
