@@ -34,7 +34,7 @@
 	--tilt: -3deg;
 }
 
-/*  Base reading experience */
+/* the basics */
 
 body {
 	background-color: var(--kraft);
@@ -48,27 +48,6 @@ body {
 
 article {
 	max-inline-size: var(--measure);
-}
-
-p {
-	hyphens: auto;
-}
-
-p + p {
-	margin-block-start: var(--space);
-}
-
-cite {
-	font-style: italic;
-}
-
-sup {
-	font-size: var(--size-small);
-	vertical-align: super;
-}
-
-a {
-	color: var(--stamp);
 }
 
 /* Footnote markers*/
@@ -136,7 +115,7 @@ header > p {
 /*  the shipping label  */
 
 .label {
-	position: relative; 
+	position: relative;
 	background-color: var(--paper);
 	border: var(--rule-thick) solid var(--ink);
 	padding-inline: var(--space);

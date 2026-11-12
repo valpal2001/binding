@@ -1,3 +1,56 @@
-body{
-	background-color: papayawhip;
+:root {
+	/* Color */
+	--background: white;
+	--ink: black;
+	--muted: gray;
+	--accent: blue;
+
+	/* Typefaces */
+	--font-text: serif;
+	--font-display: sans-serif;
+	--font-label: monospace;
+	--weight-display: 700;
+	--weight-label: 400;
+
+	/* The two numbers the whole scale is built from */
+	--size-body: 1rem;
+	--ratio: 1.25;
+
+	/* Leading and tracking */
+	--leading: 1.5;
+	--leading-tight: 1;
+	--tracking: 0.1em;
+
+	/* Lines */
+	--rule-thin: 1px;
+	--rule-thick: 3px;
+}
+
+/*main section*/
+p {
+	hyphens: auto;
+}
+
+p + p {
+	margin-block-start: var(--space);
+}
+
+a {
+	color: var(--accent);
+}
+
+cite {
+	font-style: italic;
+}
+
+sup {
+	font-size: var(--size-small);
+	vertical-align: super;
+}
+
+h1 {
+	font-family: var(--font-display);
+	font-weight: var(--weight-display);
+	line-height: var(--leading-tight);
+	text-wrap: balance;
 }

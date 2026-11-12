@@ -1,16 +1,16 @@
+/*the focus of this week's work is to nest correctly, i would love to know if i am doing it right*/
 :root {
 	--paper: #f2eee4;
 	--ink: #1a1a1a;
 	--muted: #6e675a;
 	--link: maroon;
 
-
 	--serif: "Newsreader", Georgia, serif;
-	--mono: "IBM Plex Mono", monospace;
+	--mono: "DM Mono", monospace;
 	--weight-regular: 400;
 	--weight-medium: 500;
 
-	/* Type scale: everything steps up or down from the body size */
+	/* Type scale: each step is 1.25× or ÷ from the last, starting from  body */
 	--ratio: 1.25;
 	--size-body: 1.125rem;
 	--size-small: calc(var(--size-body) / var(--ratio));
@@ -30,59 +30,44 @@
 	--space-l: calc(var(--space) * 2);
 	--space-xl: calc(var(--space) * 3);
 
+/* Page edges */
+	--gutter: var(--space);
+	--rule: 1px;
+
 }
 
 @media (width > 800px) {
 	:root {
-		--gutter: 3rem;
-		--space-top: 4.5rem;
-		--size-title: 3.5rem;
-		--size-heading: 1.75rem;
 		--size-body: 1.25rem;
-		--size-quote: 2.125rem;
-		--size-next: 1.5rem;
-		--band-pad: 3.5rem;
+		--gutter: var(--space-l);
 	}
 }
 
-@media (width > 1200px) {
-	:root {
-		--gutter: 5rem;
-		--space-top: 5.5rem;
-		--size-title: 4.5rem;
-		--size-heading: 2rem;
-		--size-quote: 2.5rem;
-		--size-next: 1.75rem;
-	}
-}
-
+/*the basics*/
 body {
-	margin: 0;
 	background-color: var(--paper);
 	color: var(--ink);
 	font-family: var(--serif);
-	padding-inline: var(--space);
+	font-size: var(--size-body);
+	line-height: var(--leading);
+	padding-inline: var(--gutter);
 }
 
 /*top bar*/
 .topbar {
 	display: grid;
 	grid-template-columns: 1fr auto;
-	margin-inline: var(--gutter);
-	padding-block: 2rem 1rem;
-	border-block-end: 1px solid var(--ink);
 	font-family: var(--mono);
-	font-size: 0.75rem;
-	font-weight: 500;
+	font-size: var(--size-label);
+	font-weight: var(--weight-medium);
+	border-block-end: var(--rule) solid var(--ink);
+	padding-block: var(--space-l) var(--space);
 }
 
 .topbar a {
-	color: var(--ink);
+	color: inherit;
 }
 
-.topbar p {
-	margin: 0;
-}
 
 /*main text*/
 article {
@@ -92,17 +77,18 @@ article {
 }
 
 article > header {
-	margin-block-start: clamp(3rem, 6vw, 5.5rem);
+	margin-block-start: var(--space-xl);
 }
 
 h1 {
-	max-inline-size: 56rem;
-	padding: 2rem 0rem;
 	font-size: var(--size-title);
-	font-weight: 400;
-	line-height: 1.04;
 	text-wrap: balance;
+	font-weight: var(--weight-regular);
+	line-height: var(--leading-tight);
+	margin-block: var(--space-l);
 }
+
+
 
 .abstract {
   display: grid;
@@ -118,113 +104,80 @@ grid-column-end: -1;
 
 .band {
 	display: grid;
-	grid-template-columns: minmax(var(--label-col), 1fr) 3fr;
+	grid-template-columns: 1fr 3fr;
 	column-gap: var(--gutter);
 	row-gap: var(--space-s);
 	align-items: baseline;
-	margin-inline: calc(-1 * var(--gutter));   /* full bleed */
-	padding: var(--band-pad) var(--gutter);
+	margin-inline: calc(var(--gutter) * -1); /* pull out to the page edges */
+	padding: var(--space-l) var(--gutter);
 	background-color: var(--ink);
 	color: var(--paper);
-}
 
-.band > :first-child,
-article > section > h2,
-article > section > h2 > span {
-	margin: 0;
-	font-family: var(--mono);
-	font-size: var(--size-label);
-	font-weight: 500;
-	letter-spacing: var(--tracking-label);
-	text-transform: uppercase;
-	color: var(--muted);
-}
+	> :first-child {
+		grid-column: 1;
+		color: var(--muted-on-ink);
+	}
 
-.band > :first-child {
-	grid-column: 1;
-	color: var(--muted-on-ink);
-}
+	a {
+		color: inherit;
+	}
 
-/*selectors choose all h2 subtitles to get a dash afterwards*/
-article > section > h2:not(:has(> span))::after,
-article > section > h2 > span::after,
-.band > :first-child::after {
-	content: " —";
-}
-
-.band a {
-	color: inherit;
-}
-
-.band address {
-	font-style: normal;
-}
-
-.keywords,
-footer.band {
-	margin-block-start: var(--space-top);
+	address {
+		font-style: normal;
+	}
 }
 
 .keywords ul {
 	display: flex;
 	flex-wrap: wrap;
-	gap: 0.1em 0.5em;
-	margin: 0;
-	padding: 0;
+	column-gap: var(--space-s);
 	list-style: none;
 	font-size: var(--size-heading);
-	line-height: var(--leading-heading);
+	line-height: var(--leading-tight);
 }
 
-.keywords li {
-	display: inline;
-}
-
-.keywords li:not(:last-child)::after { /* adds a slash after each keyword except the last one */
-	content: " /";
-	color: var(--muted-on-ink);
-}
-
-.bibliography ol {
-  list-style: decimal;
-  padding-inline-start: 2em;
-  font-size: 0.875em;
-  line-height: 1.5;
-}
-
-.bibliography li {
-  padding-inline-start: 0.5em;
-}
-
-.bibliography li::marker {
-	font-family: var(--mono);
-	font-size: var(--size-label);
+/* A slash after every keyword but the last */
+.keywords li:not(:last-child)::after {
+	content: ' /';
 	color: var(--muted);
 }
 
-.bibliography cite {
-	font-style: italic;
-}
+/*bibliography*/
+.bibliography {
+	ol {
+		list-style: decimal;
+		font-size: var(--size-small);
+		padding-inline-start: var(--space-l);
+	}
 
+	li {
+		padding-inline-start: var(--space-s);
+	}
+
+	li::marker {
+		font-family: var(--mono);
+		font-size: var(--size-label);
+		color: var(--muted);
+	}
+}
 /*next article block*/
 .next {
-	margin-block: var(--space-l) var(--space-top);
-	margin-inline: var(--gutter);
 	font-size: var(--size-large);
-}
+	margin-block: var(--space-l) var(--space-xl);
 
-.next a {
-	display: grid;
-	grid-template-columns: 1fr auto;
-	column-gap: 2rem;
-	color: var(--ink);
-	font-style: italic;
-}
+	a {
+		display: grid;
+		grid-template-columns: 1fr auto;
+		column-gap: var(--space-l);
+		color: var(--ink);
+		font-style: italic;
 
-.next span {
-	font-style: normal;
-}
+		&:hover {
+			color: var(--link);
+		}
+	}
 
-.next a:hover {
-	color: var(--blue);
+	span {
+		font-style: normal;
+	}
 }
