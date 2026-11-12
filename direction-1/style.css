@@ -8,6 +8,8 @@
 	/* Typefaces */
 	--display: 'Archivo Narrow', sans-serif;
 	--text: 'IBM Plex Mono', monospace;
+	--hanzi: 'Noto Sans TC', sans-serif;
+	--barcode: 'Libre Barcode 128', monospace;
 
 	/* Type scale: each step is a perfect fourth (4 : 3) from the last */
 	--ratio: calc(4 / 3);
@@ -69,7 +71,7 @@ a {
 	color: var(--stamp);
 }
 
-/* Footnote markers, e.g. [1] */
+/* Footnote markers*/
 p a {
 	font-size: var(--size-small);
 	font-weight: 700;
@@ -81,7 +83,7 @@ p a {
 }
 
 
-/* ---------- Headings ---------- */
+/* Headings */
 
 h1,
 h2 {
@@ -104,7 +106,7 @@ h2 {
 	margin-block-end: var(--space);
 }
 
-/* Small label, like “Filed as” on the card */
+/* (“Filed as”) small label*/
 h3 {
 	font-size: var(--size-small);
 	text-transform: uppercase;
@@ -113,7 +115,7 @@ h3 {
 }
 
 
-/* ---------- Header ---------- */
+/*  Header  */
 
 header {
 	border-block-end: var(--rule-thick) solid var(--ink);
@@ -131,16 +133,94 @@ header > p {
 	font-weight: 700;
 }
 
+/*  the shipping label  */
 
-/* ---------- Sections ---------- */
+.label {
+	position: relative; 
+	background-color: var(--paper);
+	border: var(--rule-thick) solid var(--ink);
+	padding-inline: var(--space);
+
+	/* description term and details of the label*/
+	dt {
+		color: var(--ink-soft);
+		font-size: var(--size-small);
+		text-transform: uppercase;
+		letter-spacing: var(--tracking);
+		padding-block-start: var(--space-half);
+	}
+
+dd {
+		font-family: var(--display);
+		font-weight: 700;
+		font-size: var(--size-1);
+		line-height: var(--leading-display);
+		text-transform: uppercase;
+		padding-block-end: var(--space-half);
+	}
+
+	.country {
+		font-size: var(--size-3);
+	}
+
+dd[lang="zh-Hant"] {
+		font-family: var(--hanzi);
+		font-weight: 900;
+		font-size: var(--size-4);
+		padding-block: var(--space-half);
+	}
+
+	.plain {
+		font-family: var(--text);
+		font-weight: 400;
+		font-size: var(--size-base);
+		line-height: var(--leading);
+		text-transform: none;
+	}
+
+	.barcode {
+		font-family: var(--barcode);
+		font-size: var(--size-4);
+		line-height: var(--leading-display);
+		white-space: nowrap;
+		overflow: hidden;
+		border-block-start: var(--rule-thick) solid var(--ink);
+		margin-inline: calc(var(--space) * -1);
+		padding: var(--space-half) var(--space);
+	}
+
+	.stamp {
+		position: absolute;
+		inset-block-start: 50%;
+		inset-inline-end: calc(var(--space-half) * -1);
+		margin-block-start: 0;
+		font-family: var(--display);
+		font-weight: 700;
+		font-size: var(--size-2);
+		text-transform: uppercase;
+	}
+}
+
+/*  Sections  */
 
 section,
 footer {
 	margin-block-start: var(--space-double);
 }
 
+.stamp,
+footer h2 {
+	display: inline-block;
+	color: var(--stamp);
+	border: var(--rule-thick) solid var(--stamp);
+	line-height: var(--leading);
+	padding-block: 0;
+	padding-inline: var(--space-half);
+	rotate: var(--tilt);
+}
 
-/* ---------- Abstract: the filing card ---------- */
+
+/* Abstract */
 
 .abstract {
 	background-color: var(--paper);
@@ -153,7 +233,7 @@ footer {
 		padding-block-start: 0;
 	}
 
-	/* Key words, stacked like label rows */
+	/* Key words*/
 	li {
 		font-family: var(--display);
 		font-weight: 700;
