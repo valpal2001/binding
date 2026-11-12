@@ -176,7 +176,7 @@ dd[lang="zh-Hant"] {
 		margin-inline: calc(var(--space) * -1);
 		padding: var(--space-half) var(--space);
 	}
-
+/*the red stamp*/
 	.stamp {
 		position: absolute;
 		inset-block-start: 50%;
