@@ -14,6 +14,7 @@
 	--text: "Inter", system-ui, sans-serif;
 	--tracking: -0.03em;
 	--hairline: 1px;
+	--rule-start: calc(1rlh - var(--hairline)); /*background is one full */
 
 	--paper: #ffffff;
 	--ink: #000000;
@@ -24,10 +25,11 @@
 
 body {
 	background-color: var(--paper);
-	background-image: repeating-linear-gradient( /*i made this effect with this as the foundation: https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/gradient/repeating-linear-gradient*/ /*this one makes the line a https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Images/Using_gradients*/
+/*I learned this on MDN to make this background lines effect: erence/Values/gradient/repeating-linear-gradient*/
+	background-image: repeating-linear-gradient(
 		to bottom,
-			transparent var(--rule-start), var(--grid) 0 1rlh
-	);
+		transparent 0 var(--rule-start),
+		var(--grid) 0 1rlh);
 	color: var(--ink);
 	font-family: var(--text);
 	padding: 2rlh 1rem;
