@@ -271,3 +271,15 @@ footer {
 		margin-block-start: var(--space-half);
 	}
 }
+
+/*next*/
+.next {
+	font-family: var(--display);
+	font-weight: 700;
+	font-size: var(--size-1);
+	text-transform: uppercase;
+
+	a:hover {
+		color: var(--stamp);
+	}
+}

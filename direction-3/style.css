@@ -151,14 +151,10 @@ grid-column-end: -1;
 /*next article block*/
 .next {
 	font-size: var(--size-large);
-	margin-block: var(--space-l) var(--space-xl);
 
 	a {
-		display: grid;
-		grid-template-columns: 1fr auto;
-		column-gap: var(--space-l);
-		color: var(--ink);
 		font-style: italic;
+		grid-template-columns: auto 1fr;
 
 		&:hover {
 			color: var(--link);

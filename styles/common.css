@@ -84,27 +84,16 @@ root {
 	--size-3: calc(var(--size-2) * var(--ratio));
 	--size-4: calc(var(--size-3) * var(--ratio));
 /*vertical */
-
+	
 }
 
 .next {
-	font-size: var(--size-large);
-	margin-block: var(--space-l) var(--space-xl);
+	margin-block: 2lh 3lh;
 
 	a {
 		display: grid;
-		grid-template-columns: 1fr auto;
-		column-gap: var(--space-l);
-		color: var(--ink);
-		font-style: italic;
-
-		&:hover {
-			color: var(--link);
-		}
-	}
-
-	span {
-		font-style: normal;
+		grid-template-columns: 1fr auto; /* title on the left, arrow on the right */
+		column-gap: 2lh;
+		color: inherit;
 	}
 }
-
