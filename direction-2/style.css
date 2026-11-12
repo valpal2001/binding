@@ -1,0 +1,87 @@
+
+@import url("https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap");
+
+:root {
+	font-size: 1.0625rem;
+	line-height: var(--leading);
+	--leading: 1.45;
+	--leading-tight: 1;
+
+	--ratio: 1.5;
+	--step--1: calc(1rem / var(--ratio));
+	--step-1: calc(1rem * var(--ratio));
+	--step-2: calc(var(--step-1) * var(--ratio));
+
+	--display: "Alfa Slab One", Rockwell, serif;
+	--text: "PT Serif", Georgia, serif;
+	--tracking: 0.08em;
+
+	--newsprint: #ece6d6;
+	--ink: #151515;
+	--spot: #1f3fbf;
+}
+
+body {
+	background-color: var(--newsprint);
+	color: var(--ink);
+	font-family: var(--text);
+	padding: 1rlh 1rem;
+}
+
+/*adding padding to paragraphs that sit below one*/
+p + p {
+	margin-top: 0.5rlh;
+}
+
+
+cite {
+	font-style: italic;
+}
+
+sup {
+	line-height: 0;
+	vertical-align: super;
+}
+
+a {
+	color: var(--spot);
+}
+
+header {
+	padding-block: 1rlh;
+	margin-bottom: 1rlh;
+	border-block: thick double var(--ink);
+}
+
+h1 {
+	font-family: var(--display);
+	font-weight: normal;
+	line-height: var(--leading-tight);
+	font-size: var(--step-2);
+	margin-block: 0.5rlh;
+}
+
+h2 {font-family: var(--display);
+	font-weight: normal;
+	line-height: var(--leading-tight);
+	font-size: var(--step-1);
+	background-color: var(--spot);
+	color: var(--newsprint);
+	padding: 0.5rlh 0.5rem;
+	margin-bottom: 0.5rlh;
+}
+
+hgroup p,
+header > p,
+h3,
+footer h2 {
+	font-family: var(--display);
+	font-size: var(--step--1);
+	letter-spacing: var(--tracking);
+	text-transform: uppercase;
+	color: var(--spot);
+}
+
+section {
+	margin-bottom: 1rlh;
+}

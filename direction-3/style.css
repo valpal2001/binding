@@ -19,8 +19,6 @@
 	--size-next: 1.25rem;
 }
 
-
-
 @media (width > 800px) {
 	:root {
 		--gutter: 3rem;
@@ -210,5 +208,5 @@ bibliography ol {
 .next a:hover {
 	color: var(--blue);
 }
-
+}
 
