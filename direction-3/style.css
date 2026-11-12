@@ -4,26 +4,44 @@
 	--muted: #6e675a;
 	--link: maroon;
 
-	--serif: "Newsreader", Georgia, serif;
-	--display: "Instrument Serif", Georgia, serif;
-	--mono: "IBM Plex Mono", monospace;
-	--cjk: "Noto Serif TC", serif;
 
+	--serif: "Newsreader", Georgia, serif;
+	--mono: "IBM Plex Mono", monospace;
+	--measure: 35rem;
+
+/*mobile first design definitions*/
 	--gutter: 1.25rem;
+	--space-top: 3rem;
 	--size-title: 2.5rem;
+	--size-heading: 1.5rem;
+	--size-body: 1.125rem;
+	--size-quote: 1.75rem;
+	--size-next: 1.25rem;
 }
+
+
 
 @media (width > 800px) {
 	:root {
-		--gutter: 5rem;
+		--gutter: 3rem;
+		--space-top: 4.5rem;
 		--size-title: 3.5rem;
+		--size-heading: 1.75rem;
+		--size-body: 1.25rem;
+		--size-quote: 2.125rem;
+		--size-next: 1.5rem;
+		--band-pad: 3.5rem;
 	}
 }
 
 @media (width > 1200px) {
 	:root {
 		--gutter: 5rem;
+		--space-top: 5.5rem;
 		--size-title: 4.5rem;
+		--size-heading: 2rem;
+		--size-quote: 2.5rem;
+		--size-next: 1.75rem;
 	}
 }
 
@@ -55,6 +73,9 @@ body {
 
 article {
 	padding-inline: var(--gutter);
+	padding-block-end: var(--space-top);
+	font-size: var(--size-body);
+	line-height: 1.55;
 }
 
 article > header {
@@ -70,9 +91,107 @@ h1 {
 	text-wrap: balance;
 }
 
+.abstract {
+  display: grid;
+  grid-template-columns: minmax(7rem, 1fr) 3fr;
+  column-gap: var(--gutter);
+  margin-block-end: var(--space-top);
+}
+
+.abstract > * {
+grid-column-start: 1;
+grid-column-end: -1;
+}
+
+.band {
+	display: grid;
+	grid-template-columns: minmax(var(--label-col), 1fr) 3fr;
+	column-gap: var(--gutter);
+	row-gap: var(--space-s);
+	align-items: baseline;
+	margin-inline: calc(-1 * var(--gutter));   /* full bleed */
+	padding: var(--band-pad) var(--gutter);
+	background-color: var(--ink);
+	color: var(--paper);
+}
+
+.band > :first-child,
+article > section > h2,
+article > section > h2 > span {
+	margin: 0;
+	font-family: var(--mono);
+	font-size: var(--size-label);
+	font-weight: 500;
+	letter-spacing: var(--tracking-label);
+	text-transform: uppercase;
+	color: var(--muted);
+}
+
+.band > :first-child {
+	grid-column: 1;
+	color: var(--muted-on-ink);
+}
+
+.band > :first-child::after,
+article > section > h2:not(:has(> span))::after,
+article > section > h2 > span::after {
+	content: " —";
+}
+
+.band a {
+	color: inherit;
+}
+
+.band address {
+	font-style: normal;
+}
+
+.keywords,
+footer.band {
+	margin-block-start: var(--space-top);
+
+.keywords ul {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.1em 0.5em;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	font-size: var(--size-heading);
+	line-height: var(--leading-heading);
+}
+
+.keywords li:not(:last-child)::after { /* adds a slash after each keyword except the last one */
+	content: " /";
+	color: var(--muted-on-ink);
+}
+
+@media (width <= 800px) {
+	.abstract {
+		grid-template-columns: 1fr;
+	}
+	.band {
+		grid-template-columns: 1fr;
+	}
+
+	.band > :not(:first-child) {
+		grid-column: 1;
+	}
+}
+
+bibliography ol {
+  list-style: decimal;
+  padding-inline-start: 2em;
+  font-size: 0.875em;
+  line-height: 1.5;
+}
+.bibliography li {
+  padding-inline-start: 0.5em;
+}
+
 
 .next {
-	margin-block: 3rem 5.25rem;
+	margin-block: var(--space-l) var(--space-top);
 	margin-inline: var(--gutter);
 }
 
@@ -91,4 +210,5 @@ h1 {
 .next a:hover {
 	color: var(--blue);
 }
+
 
