@@ -85,3 +85,36 @@ footer h2 {
 section {
 	margin-bottom: 1rlh;
 }
+
+/*adding a double dash divider*/
+section + section,
+footer {
+	padding-top: 1rlh;
+	border-top: thick double var(--ink);
+}
+
+section ul li {
+	display: inline;
+	font-weight: 700;
+}
+
+/*a dash after each keyword*/
+section ul li:not(:last-child)::after {
+	content: " /";
+	color: var(--spot);
+}
+
+.bibliography h2 {
+	background-color: var(--ink);
+}
+
+.bibliography ol {
+	list-style: decimal;
+	padding-left: 1rlh;
+	font-size: var(--step--1);
+}
+
+footer h2 {
+	background-color: transparent;
+	padding: 0;
+}

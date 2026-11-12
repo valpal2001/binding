@@ -7,16 +7,29 @@
 
 	--serif: "Newsreader", Georgia, serif;
 	--mono: "IBM Plex Mono", monospace;
-	--measure: 35rem;
+	--weight-regular: 400;
+	--weight-medium: 500;
 
-/*mobile first design definitions*/
-	--gutter: 1.25rem;
-	--space-top: 3rem;
-	--size-title: 2.5rem;
-	--size-heading: 1.5rem;
-	--size-body: 1.125rem;
-	--size-quote: 1.75rem;
-	--size-next: 1.25rem;
+ /* Type scale: everything steps up or down from the body size */
+    --ratio: 1.25;
+    --size-body: 1.125rem;
+    --size-small: calc(var(--size-body) / var(--ratio));
+    --size-label: calc(var(--size-small) / var(--ratio));
+    --size-heading: calc(var(--size-body) * var(--ratio));
+    --size-large: calc(var(--size-heading) * var(--ratio));
+    --size-title: calc(var(--size-large) * var(--ratio) * var(--ratio));
+
+	/* Leading and tracking */
+    --leading: 1.5;
+    --leading-tight: 1.1;
+    --tracking-label: 0.08em;
+
+    /* Vertical space*/
+    --space: calc(var(--size-body) * var(--leading));
+    --space-s: calc(var(--space) / 2);
+    --space-l: calc(var(--space) * 2);
+    --space-xl: calc(var(--space) * 3);
+
 }
 
 @media (width > 800px) {
