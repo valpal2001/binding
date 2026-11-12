@@ -10,25 +10,25 @@
 	--weight-regular: 400;
 	--weight-medium: 500;
 
- /* Type scale: everything steps up or down from the body size */
-    --ratio: 1.25;
-    --size-body: 1.125rem;
-    --size-small: calc(var(--size-body) / var(--ratio));
-    --size-label: calc(var(--size-small) / var(--ratio));
-    --size-heading: calc(var(--size-body) * var(--ratio));
-    --size-large: calc(var(--size-heading) * var(--ratio));
-    --size-title: calc(var(--size-large) * var(--ratio) * var(--ratio));
+	/* Type scale: everything steps up or down from the body size */
+	--ratio: 1.25;
+	--size-body: 1.125rem;
+	--size-small: calc(var(--size-body) / var(--ratio));
+	--size-label: calc(var(--size-small) / var(--ratio));
+	--size-heading: calc(var(--size-body) * var(--ratio));
+	--size-large: calc(var(--size-heading) * var(--ratio));
+	--size-title: calc(var(--size-large) * var(--ratio) * var(--ratio));
 
-	/* Leading and tracking */
-    --leading: 1.5;
-    --leading-tight: 1.1;
-    --tracking-label: 0.08em;
+/* Leading and tracking */
+	--leading: 1.5;
+	--leading-tight: 1.1;
+	--tracking-label: 0.08em;
 
-    /* Vertical space*/
-    --space: calc(var(--size-body) * var(--leading));
-    --space-s: calc(var(--space) / 2);
-    --space-l: calc(var(--space) * 2);
-    --space-xl: calc(var(--space) * 3);
+/* Vertical space*/
+	--space: calc(var(--size-body) * var(--leading));
+	--space-s: calc(var(--space) / 2);
+	--space-l: calc(var(--space) * 2);
+	--space-xl: calc(var(--space) * 3);
 
 }
 
@@ -61,8 +61,10 @@ body {
 	background-color: var(--paper);
 	color: var(--ink);
 	font-family: var(--serif);
+	padding-inline: var(--space);
 }
 
+/*top bar*/
 .topbar {
 	display: grid;
 	grid-template-columns: 1fr auto;
@@ -82,9 +84,9 @@ body {
 	margin: 0;
 }
 
+/*main text*/
 article {
 	padding-inline: var(--gutter);
-	padding-block-end: var(--space-top);
 	font-size: var(--size-body);
 	line-height: 1.55;
 }
@@ -143,9 +145,10 @@ article > section > h2 > span {
 	color: var(--muted-on-ink);
 }
 
-.band > :first-child::after,
+/*selectors choose all h2 subtitles to get a dash afterwards*/
 article > section > h2:not(:has(> span))::after,
-article > section > h2 > span::after {
+article > section > h2 > span::after,
+.band > :first-child::after {
 	content: " —";
 }
 
@@ -172,22 +175,13 @@ footer.band {
 	line-height: var(--leading-heading);
 }
 
+.keywords li {
+	display: inline;
+}
+
 .keywords li:not(:last-child)::after { /* adds a slash after each keyword except the last one */
 	content: " /";
 	color: var(--muted-on-ink);
-}
-
-@media (width <= 800px) {
-	.abstract {
-		grid-template-columns: 1fr;
-	}
-	.band {
-		grid-template-columns: 1fr;
-	}
-
-	.band > :not(:first-child) {
-		grid-column: 1;
-	}
 }
 
 bibliography ol {
@@ -196,14 +190,25 @@ bibliography ol {
   font-size: 0.875em;
   line-height: 1.5;
 }
+
 .bibliography li {
   padding-inline-start: 0.5em;
 }
 
+.bibliography li::marker {
+	font-family: var(--mono);
+	font-size: var(--size-label);
+	color: var(--muted);
+}
 
+.bibliography cite {
+	font-style: italic;
+
+/*next article block*/
 .next {
 	margin-block: var(--space-l) var(--space-top);
 	margin-inline: var(--gutter);
+	font-size: var(--size-large);
 }
 
 .next a {
@@ -223,3 +228,4 @@ bibliography ol {
 }
 }
 
+}
