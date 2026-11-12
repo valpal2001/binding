@@ -97,7 +97,7 @@ article > header {
 
 h1 {
 	max-inline-size: 56rem;
-	margin: 0;
+	padding: 2rem 0rem;
 	font-size: var(--size-title);
 	font-weight: 400;
 	line-height: 1.04;
@@ -163,6 +163,7 @@ article > section > h2 > span::after,
 .keywords,
 footer.band {
 	margin-block-start: var(--space-top);
+}
 
 .keywords ul {
 	display: flex;
@@ -184,7 +185,7 @@ footer.band {
 	color: var(--muted-on-ink);
 }
 
-bibliography ol {
+.bibliography ol {
   list-style: decimal;
   padding-inline-start: 2em;
   font-size: 0.875em;
@@ -203,6 +204,7 @@ bibliography ol {
 
 .bibliography cite {
 	font-style: italic;
+}
 
 /*next article block*/
 .next {
@@ -225,7 +227,4 @@ bibliography ol {
 
 .next a:hover {
 	color: var(--blue);
-}
-}
-
 }

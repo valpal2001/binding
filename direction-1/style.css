@@ -1,97 +1,203 @@
+:root {
+	/* Color */
+	--kraft: #cdb48c;
+	--ink: #1a1a1a;
+	--paper: #f7f3ea;
+	--stamp: #c8372d;
 
-@font-face {
-/*Osaka-Sans Serif may be downloaded and used free of charge for both personal and commercial use, as long as the usage is not racist or illegal.*/
-	font-family: "Osaka";
-	src: url("../fonts/osaka-re.ttf") format("truetype");
-	font-weight: normal;
-	font-style: normal;
-	font-display: swap;
+	/* Typefaces */
+	--display: 'Archivo Narrow', sans-serif;
+	--text: 'IBM Plex Mono', monospace;
+
+	/* Type scale: each step is a perfect fourth (4 : 3) from the last */
+	--ratio: calc(4 / 3);
+	--size-small: calc(1rem / var(--ratio));
+	--size-base: 1rem;
+	--size-1: calc(var(--size-base) * var(--ratio));
+	--size-2: calc(var(--size-1) * var(--ratio));
+	--size-3: calc(var(--size-2) * var(--ratio));
+	/* Leading */
+	--leading: 1.6;
+	--leading-display: 1;
+
+	/* Vertical rhythm: all spacing is built from one line of body text */
+	--space: calc(var(--leading) * var(--size-base));
+	--space-half: calc(var(--space) / 2);
+	--space-double: calc(var(--space) * 2);
+
+	/* Details */
+	--tracking: 0.1em;
+	--rule-thin: 1px;
+	--rule-thick: 3px;
+	--tilt: -3deg;
 }
 
+/*  Base reading experience */
 
-body{
-	background-color:papayawhip;
-	color:maroon;
-	font-family: Georgia, serif;
-	padding: 4rem 1.5rem;
-	font-size: 1.125rem;
-	line-height: 1.75;
+body {
+	background-color: var(--kraft);
+	color: var(--ink);
+	font-family: var(--text);
+	font-size: var(--size-base);
+	line-height: var(--leading);
+	padding-block: var(--space);
+	padding-inline: var(--space-double);
 }
 
 article {
-	max-width: 38rem;
-	margin: 0 auto;
+	max-inline-size: var(--measure);
 }
 
-/*Header styling*/
-header {
-	padding-top: 4rem;
-	margin-bottom: 4rem;
+p {
+	hyphens: auto;
 }
 
-hgroup p {
-	margin-bottom: 0.75rem;
+p + p {
+	margin-block-start: var(--space);
+}
+
+cite {
+	font-style: italic;
+}
+
+sup {
+	font-size: var(--size-small);
+	vertical-align: super;
+}
+
+a {
+	color: var(--stamp);
+}
+
+/* Footnote markers, e.g. [1] */
+p a {
+	font-size: var(--size-small);
+	font-weight: 700;
+	text-decoration: none;
+
+	&:hover {
+		text-decoration: underline;
+	}
+}
+
+
+/* ---------- Headings ---------- */
+
+h1,
+h2 {
+	font-family: var(--display);
+	font-weight: 700;
+	line-height: var(--leading-display);
+	text-transform: uppercase;
+	text-wrap: balance;
 }
 
 h1 {
-	line-height: 1.15;
-	margin-bottom: 1.5rem;
+	font-size: var(--size-3);
+	margin-block: var(--space-half);
 }
 
-/*sections styling*/
-section {
-	margin-bottom: 3.5rem;
+h2 {
+	font-size: var(--size-2);
+	border-block-start: var(--rule-thick) solid var(--ink);
+	padding-block-start: var(--space-half);
+	margin-block-end: var(--space);
 }
 
-h1, h2{
-	font-family: "Osaka", sans-serif;
-	color:darkslategray;
-	font-size:2rem;
-}
-
+/* Small label, like “Filed as” on the card */
 h3 {
-	margin-top: 1.5rem;
-	margin-bottom: 0.5rem;
+	font-size: var(--size-small);
+	text-transform: uppercase;
+	letter-spacing: var(--tracking);
+	margin-block: var(--space) var(--space-half);
 }
 
-/*footer and bilbiography*/
-.bibliography ol {
-	list-style: none;
-	counter-reset: ref;
-	padding: 0;
-	margin: 0;
+
+/* ---------- Header ---------- */
+
+header {
+	border-block-end: var(--rule-thick) solid var(--ink);
+	padding-block-end: var(--space);
 }
 
-.bibliography li {
-	counter-increment: ref;
-	position: relative;
-	padding-left: 3em;
-	margin-bottom: 0.75em;
-	font-size: 0.875rem;
-	line-height: 1.5;
-	overflow-wrap: anywhere;
+/* Conference line and author */
+header p {
+	font-size: var(--size-small);
+	text-transform: uppercase;
+	letter-spacing: var(--tracking);
 }
 
-.bibliography li::before {
-	content: "[" counter(ref) "]";
-	position: absolute;
-	left: 0;
-	font-variant-numeric: tabular-nums;
+header > p {
+	font-weight: 700;
 }
 
+
+/* ---------- Sections ---------- */
+
+section,
 footer {
-	margin-top: 5rem;
-	padding-top: 2rem;
-	border-top: 1px solid;
+	margin-block-start: var(--space-double);
 }
 
-/*responsive design*/
-@media (max-width: 600px) {
-	body {
-		padding: 2.5rem 1.25rem;
+
+/* ---------- Abstract: the filing card ---------- */
+
+.abstract {
+	background-color: var(--paper);
+	border: var(--rule-thin) solid var(--ink);
+	padding: var(--space);
+
+	h2 {
+		color: var(--stamp);
+		border-block-start: none;
+		padding-block-start: 0;
 	}
 
-	header {
-		margin-bottom: 3rem;
+	/* Key words, stacked like label rows */
+	li {
+		font-family: var(--display);
+		font-weight: 700;
+		font-size: var(--size-1);
+		line-height: var(--leading-display);
+		text-transform: uppercase;
+		border-block-start: var(--rule-thin) solid var(--ink);
+		padding-block: var(--space-half);
+	}
+}
+
+
+/* Bibliography: the item list */
+
+.bibliography {
+	ol {
+		font-size: var(--size-small);
+	}
+
+	li {
+		list-style: decimal-leading-zero inside;
+		border-block-start: var(--rule-thin) solid var(--ink);
+		padding-block: var(--space-half);
+	}
+}
+
+
+/*  Footer: the stamp  */
+
+footer {
+	h2 {
+		display: inline-block;
+		color: var(--stamp);
+		border: var(--rule-thick) solid var(--stamp);
+		line-height: var(--leading);
+		padding-block: 0;
+		padding-inline: var(--space-half);
+		rotate: var(--tilt);
+	}
+
+	address {
+		font-size: var(--size-small);
+		text-transform: uppercase;
+		letter-spacing: var(--tracking);
+		margin-block-start: var(--space-half);
 	}
 }

@@ -119,20 +119,60 @@ footer h2 {
 	padding: 0;
 }
 
-body {
-    margin: 0;
-    background-color: var(--paper);
-    color: var(--ink);
-    font-family: var(--serif);
-    font-size: var(--size-body);
-    font-weight: var(--weight-regular);
-    line-height: var(--leading);
+section {
+	margin-bottom: 1rlh;
 }
 
-p {
-    margin-block: 0 var(--space);
+h2 {
+	font-size: var(--step-1);
+	background-color: var(--spot);
+	color: var(--newsprint);
+	padding: 0.5rlh 0.5rem;
+	margin-bottom: 0.5rlh;
 }
 
-a {
-    color: var(--link);
+section + section,
+footer {
+	padding-top: 1rlh;
+	border-top: thick double var(--ink);
 }
+
+/* Citation numbers in spot ink */
+section p a {
+	font-family: var(--display);
+	font-size: var(--step--1);
+	line-height: 0;
+	vertical-align: super;
+	color: var(--spot);
+	text-decoration: none;
+}
+
+h3 {
+	margin-top: 0.5rlh;
+}
+
+section ul li {
+	display: inline;
+	font-weight: 700;
+}
+
+section ul li:not(:last-child)::after {
+	content: " /";
+	color: var(--spot);
+}
+
+.bibliography h2 {
+	background-color: var(--ink);
+}
+
+.bibliography ol {
+	list-style: decimal;
+	padding-left: 1rlh;
+	font-size: var(--step--1);
+}
+
+footer h2 {
+	background-color: transparent;
+	padding: 0;
+}
+
