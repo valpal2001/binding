@@ -9,8 +9,11 @@
 
 	--ratio: 1.5;
 	--step--1: calc(1rem / var(--ratio));
-	--step-1: calc(1rem * var(--ratio));
+	--step-0: 1rem;
+	--step-1: calc(var(--step-0) * var(--ratio));
 	--step-2: calc(var(--step-1) * var(--ratio));
+	--step-3: calc(var(--step-2) * var(--ratio));
+	--step-4: calc(var(--step-3) * var(--ratio));
 
 	--display: "Alfa Slab One", Rockwell, serif;
 	--text: "PT Serif", Georgia, serif;
@@ -26,6 +29,7 @@ body {
 	color: var(--ink);
 	font-family: var(--text);
 	padding-block: 1rlh;
+	padding-inline: 1rem;
 }
 
 /*adding padding to paragraphs that sit below one*/
@@ -91,10 +95,6 @@ footer h2 {
 	color: var(--spot);
 }
 
-section {
-	margin-bottom: 1rlh;
-}
-
 /*adding a double dash divider*/
 section + section,
 footer {
@@ -139,49 +139,3 @@ h2 {
 	padding: 0.5rlh 0.5rem;
 	margin-bottom: 0.5rlh;
 }
-
-section + section,
-footer {
-	padding-top: 1rlh;
-	border-top: thick double var(--ink);
-}
-
-/* Citation numbers in spot ink */
-section p a {
-	font-family: var(--display);
-	font-size: var(--step--1);
-	line-height: 0;
-	vertical-align: super;
-	color: var(--spot);
-	text-decoration: none;
-}
-
-h3 {
-	margin-top: 0.5rlh;
-}
-
-section ul li {
-	display: inline;
-	font-weight: 700;
-}
-
-section ul li:not(:last-child)::after {
-	content: " /";
-	color: var(--spot);
-}
-
-.bibliography h2 {
-	background-color: var(--ink);
-}
-
-.bibliography ol {
-	list-style: decimal;
-	padding-left: 1rlh;
-	font-size: var(--step--1);
-}
-
-footer h2 {
-	background-color: transparent;
-	padding: 0;
-}
-

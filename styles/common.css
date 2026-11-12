@@ -74,3 +74,15 @@ body {
 		color: inherit;
 	}
 }
+
+root {
+/*type scale*/
+	--size-small: calc(1rem / var(--ratio));
+	--size-base: 1rem;
+	--size-1: calc(var(--size-base) * var(--ratio));
+	--size-2: calc(var(--size-1) * var(--ratio));
+	--size-3: calc(var(--size-2) * var(--ratio));
+	--size-4: calc(var(--size-3) * var(--ratio));
+/*vertical */
+
+}
