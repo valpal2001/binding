@@ -28,6 +28,7 @@
 	--space: calc(var(--leading) * var(--size-base));
 	--space-half: calc(var(--space) / 2);
 	--space-double: calc(var(--space) * 2);
+	--space-triple: calc(var(--space) * 3);
 
 	/* Details */
 	--tracking: 0.1em;
@@ -80,7 +81,7 @@ h2 {
 
 h1 {
 	font-size: var(--size-3);
-	margin-block: var(--space-half);
+	margin-block: var(--space-double) var(--space);
 }
 
 h2 {
@@ -122,6 +123,11 @@ header > p {
 	font-weight: 700;
 	letter-spacing: var(--tracking);
 	border-block-end-width: var(--rule-thick);
+}
+
+
+.note-count {
+	text-align: end; /*I want 1of3 to sit on the right*/
 }
 
 /*  the shipping label  */
@@ -277,9 +283,14 @@ footer {
 
 /*next*/
 .next {
+	border-block-start: var(--rule-thick) solid var(--ink);
 	font-family: var(--display);
-	font-weight: 700;
 	font-size: var(--size-1);
+	font-weight: 700;
+	margin-block-start: var(--space-double);
+	margin-inline: auto;
+	max-inline-size: var(--measure);
+	padding-block-start: var(--space-half);
 	text-transform: uppercase;
 
 	a:hover {
@@ -371,6 +382,6 @@ footer {
 
 .intro {
 	font-size: var(--size-base);
-	margin-block: var(--space-half) var(--space-double);
-	max-inline-size: var(--measure);
+	margin-block-end: var(--space-triple);
+	max-inline-size: 50ch;
 }

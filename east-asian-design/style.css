@@ -49,6 +49,7 @@ body {
 }
 
 article {
+	margin-inline: auto;
 	max-inline-size: var(--measure);
 }
 
@@ -115,10 +116,44 @@ header > p {
 }
 
 .topbar {
+	align-items: baseline;
+	background-color: var(--kraft);
+	border-block-end: var(--rule-thick) solid var(--ink);
+	display: flex;
+	flex-wrap: wrap;
 	font-size: var(--size-small);
 	font-weight: 700;
+	gap: var(--space-half) var(--space-double);
 	letter-spacing: var(--tracking);
-	border-block-end-width: var(--rule-thick);
+	padding-block: var(--space-half);
+	position: sticky;
+	top: 0;
+
+	ol {
+		display: flex;
+		flex-wrap: wrap;
+		gap: var(--space-half) var(--space);
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+
+	a {
+		text-decoration: none;
+
+		&:hover {
+			color: var(--stamp);
+		}
+
+		&[aria-current="page"] {
+			text-decoration: underline;
+		}
+
+		&:focus-visible {
+			outline: var(--rule-thick) solid var(--stamp);
+			outline-offset: var(--space-half);
+		}
+	}
 }
 
 /*  the shipping label  */
@@ -278,7 +313,8 @@ footer {
 	font-weight: 700;
 	font-size: var(--size-1);
 	text-transform: uppercase;
-
+	margin-inline: auto;
+	max-inline-size: var(--measure);
 	a:hover {
 		color: var(--stamp);
 	}
