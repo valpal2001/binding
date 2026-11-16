@@ -298,6 +298,7 @@ footer {
 	li {
 		display: flex;
 		flex: 1 1 18rem;
+		min-width: 0;
 	}
 }
 
@@ -309,16 +310,27 @@ footer {
 	padding-block-start: var(--space);
 	text-decoration: none;
 	display: flex;
+		flex: 1;
 	flex-direction: column;
+	min-width: 0;
+	overflow-wrap: break-word;
+	padding-block-start: var(--space-double);
 
-	> * {
+
+> * {
 		padding-inline: var(--space);
 	}
 
 	h2 {
+		hyphens: auto;
+		margin-block-end: var(--space-double);
 		border-block-start: none;
 		font-size: var(--size-1);
 		padding-block-start: 0;
+	}
+
+	dd {
+		padding-block-end: var(--space-half);
 	}
 
 	dt {
@@ -330,7 +342,7 @@ footer {
 	}
 
 	.summary {
-		margin-block-start: var(--space);
+		margin-block: var(--space) var(--space-double);
 	}
 
 	.barcode {
@@ -343,7 +355,7 @@ footer {
 		padding-block: var(--space-half);
 		white-space: nowrap;
 		margin-block-start: auto;
-
+		padding-block: var(--space);
 	}
 
 	&:hover {
