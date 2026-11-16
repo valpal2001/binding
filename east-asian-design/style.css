@@ -12,7 +12,7 @@
 	--hanzi: 'Noto Sans TC', sans-serif;
 	--barcode: 'Libre Barcode 128', monospace;
 
-	/* Type scale: each step is a perfect fourth (4 : 3) from the last */
+	/* Type scale: each step is a fourth (4 : 3) from the last */
 	--ratio: calc(4 / 3);
 	--size-small: calc(1rem / var(--ratio));
 	--size-base: 1rem;
@@ -24,19 +24,19 @@
 	--leading: 1.6;
 	--leading-display: 1;
 
-	/* Vertical rhythm: all spacing is built from one line of body text */
+	/* Vertical scale: all spacing is built from one line of body text */
 	--space: calc(var(--leading) * var(--size-base));
 	--space-half: calc(var(--space) / 2);
 	--space-double: calc(var(--space) * 2);
 
-	/* Details */
+	/* Other details */
 	--tracking: 0.1em;
 	--rule-thin: 1px;
 	--rule-thick: 3px;
 	--tilt: -3deg;
 }
 
-/* the basics */
+/* the layout basics */
 
 body {
 	background-color: var(--kraft);
