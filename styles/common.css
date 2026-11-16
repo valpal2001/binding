@@ -34,6 +34,7 @@
 	--rule-thin: 1px;
 	--rule-thick: 3px;
 	--tilt: -3deg;
+	--measure: 66ch;
 }
 
 
@@ -366,4 +367,10 @@ footer {
 		outline: var(--rule-thick) solid var(--stamp);
 		outline-offset: var(--space-half);
 	}
+}
+
+.intro {
+	font-size: var(--size-base);
+	margin-block: var(--space-half) var(--space-double);
+	max-inline-size: var(--measure);
 }
