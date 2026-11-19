@@ -112,7 +112,9 @@ header {
 
 	h1 {
 		margin-block: var(--space-half);
+	}
 }
+
 
 /* Conference line and author */
 header p {
