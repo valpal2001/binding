@@ -1,18 +1,23 @@
-<html>
+<!doctype html>
+<html lang="en">
 	<head>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@700&family=IBM+Plex+Mono:ital,wght@0,400;0,700;1,400&family=Noto+Sans+TC:wght@900&family=Libre+Barcode+128&display=swap">		<title>Binding</title>
-		<p></p>
-	<style>
-		@import 'styles/reset.css' layer(reset);
-		@import 'styles/common.css' layer(common);
-	</style>
+		<title>Binding</title>
+		<meta name="author" content="Valerie Hui">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@700&family=IBM+Plex+Mono:ital,wght@0,400;0,700;1,400&family=Noto+Sans+TC:wght@900&family=Libre+Barcode+128&display=swap">
+		<style>
+			@import 'styles/reset.css' layer(reset);
+			@import 'styles/common.css' layer(common);
+		</style>
 	</head>
-
 	<body>
-		<h1>Valerie Hui's Project 3: Binding</h1>
-		<p class="intro">Who decides what goes into design history? These readings question the unspoken standards that we have grown to be familiar with. Chou shows how Euro-American modernism pushed East Asian design to the margins. Buzon argues that design thinking keeps whiteness as its default. Holmes-Miller documents why Black designers were missing from the profession. Read together, they ask who gets to set design’s “standard.”</p>
-		<nav aria-label="Contents">
+		<main>
+			<header>
+				<h1>Valerie Hui's Project 3: Binding</h1>
+				<p class="intro">Who decides what goes into design history? These readings question the unspoken standards that we have grown to be familiar with. Chou shows how Euro-American modernism pushed East Asian design to the margins. Buzon argues that design thinking keeps whiteness as its default. Holmes-Miller documents why Black designers were missing from the profession. Read together, they ask who gets to set design’s “standard.”</p>
+			</header>
+
+			<nav aria-label="Contents">
 				<ol class="cards">
 					<li>
 						<a class="card" href="east-asian-design/">
@@ -24,7 +29,7 @@
 								<dd>E&amp;PDE Conference, Salzburg, <time datetime="2006">2006</time></dd>
 							</dl>
 							<p class="summary">Using Taiwan as a case study, Chou argues that design history treats Euro-American modernism as the standard and pushes East Asian design to the margins.</p>
-							<p class="barcode" >EPDE2006TAIWAN</p>
+							<p class="barcode" aria-hidden="true">EPDE2006TAIWAN</p>
 						</a>
 					</li>
 					<li>
@@ -37,7 +42,7 @@
 								<dd><cite>Medium</cite>, <time datetime="2020">2020</time></dd>
 							</dl>
 							<p class="summary">Buzon argues that design thinking repackages Modernist design, keeps whiteness as its default, and presents itself as a neutral method.</p>
-							<p class="barcode">DTSTANFORD2005USA</p>
+							<p class="barcode" aria-hidden="true">DTSTANFORD2005USA</p>
 						</a>
 					</li>
 					<li>
@@ -50,10 +55,11 @@
 								<dd><cite>Print</cite>, <time datetime="1987-09">September 1987</time></dd>
 							</dl>
 							<p class="summary">Holmes-Miller looks at why so few Black designers worked in graphic design: family pressure, the cost of school, isolation, a lack of mentors, and hidden bias.</p>
-							<p class="barcode" >PRINT1987USA</p>
+							<p class="barcode" aria-hidden="true">PRINT1987USA</p>
 						</a>
 					</li>
 				</ol>
 			</nav>
+		</main>
 	</body>
-	</html>
+</html>
