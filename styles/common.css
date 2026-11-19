@@ -54,6 +54,8 @@ body {
 
 article {
 	max-inline-size: var(--measure);
+	margin-inline: auto;
+	max-inline-size: var(--measure);
 }
 
 /* Footnote markers*/
@@ -105,6 +107,11 @@ h3 {
 header {
 	border-block-end: var(--rule-thick) solid var(--ink);
 	padding-block-end: var(--space);
+	border-block-end: var(--rule-thick) solid var(--ink);
+	padding-block-end: var(--space);
+
+	h1 {
+		margin-block: var(--space-half);
 }
 
 /* Conference line and author */
@@ -119,15 +126,48 @@ header > p {
 }
 
 .topbar {
+	align-items: baseline;
+	background-color: var(--kraft);
+	border-block-end: var(--rule-thick) solid var(--ink);
+	display: flex;
+	flex-wrap: wrap;
 	font-size: var(--size-small);
 	font-weight: 700;
+	gap: var(--space-half) var(--space-double);
 	letter-spacing: var(--tracking);
-	border-block-end-width: var(--rule-thick);
+	padding-block: var(--space-half);
+	position: sticky;
+	inset-block-start: 0;
+
+	ol {
+		display: flex;
+		flex-wrap: wrap;
+		gap: var(--space-half) var(--space);
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+
+	a {
+		text-decoration: none;
+
+		&:hover {
+			color: var(--stamp);
+		}
+
+		&[aria-current="page"] {
+			text-decoration: underline;
+		}
+
+		&:focus-visible {
+			outline: var(--rule-thick) solid var(--stamp);
+			outline-offset: var(--space-half);
+		}
+	}
 }
 
-
 .note-count {
-	text-align: end; /*I want 1of3 to sit on the right*/
+	text-align: end;
 }
 
 /*  the shipping label  */
@@ -384,4 +424,5 @@ footer {
 	font-size: var(--size-base);
 	margin-block-end: var(--space-triple);
 	max-inline-size: 50ch;
+}
 }
