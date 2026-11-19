@@ -1,3 +1,19 @@
 :root {
 	--kraft: #ffffff;
 }
+
+.abstract {
+	background-color: var(--paper);
+	border: var(--rule-thin) solid var(--ink);
+	padding: var(--space);
+
+	h2 {
+		display: inline-block;
+		color: var(--stamp);
+		border: var(--rule-thick) solid var(--stamp);
+		line-height: var(--leading);
+		padding-block: 0;
+		padding-inline: var(--space-half);
+		rotate: var(--tilt);
+	}
+}
