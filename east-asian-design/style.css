@@ -1,0 +1,15 @@
+:root {
+	--kraft: #d6b588;
+}
+
+section {
+	h2 {
+		display: inline-block;
+		color: var(--stamp);
+		border: var(--rule-thick) solid var(--stamp);
+		line-height: var(--leading);
+		padding-block: 0;
+		padding-inline: var(--space-half);
+		rotate: var(--tilt);
+	}
+}
