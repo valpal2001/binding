@@ -106,8 +106,6 @@ h3 {
 header {
 	border-block-end: var(--rule-thick) solid var(--ink);
 	padding-block-end: var(--space);
-	border-block-end: var(--rule-thick) solid var(--ink);
-	padding-block-end: var(--space);
 
 	h1 {
 		margin-block: var(--space-half);
@@ -426,4 +424,4 @@ footer {
 	margin-block-end: var(--space-triple);
 	max-inline-size: 50ch;
 }
-}
+
