@@ -52,6 +52,10 @@ body {
 	padding-inline: var(--space-double);
 }
 
+main {
+	margin-block-start: var(--space-triple);
+}
+
 article {
 	margin-inline: auto;
 	max-inline-size: var(--measure);
