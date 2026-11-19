@@ -1,0 +1,21 @@
+:root {
+	--kraft: #1c1b19;
+	--ink: #ece8df;
+	--paper: #2a2826;	/* label box: one step lighter than the page */
+	--ink-soft: #a29d94;
+	--stamp: #e0503f;
+	--ghost: #45423e;	/* the "missing" grey */
+}
+h1 {
+	.missing {
+		color: var(--ghost);
+	}
+}
+
+/* For readers who ask for more contrast, the missing words come back */
+@media (prefers-contrast: more) {
+	:root {
+		--ghost: var(--ink);
+		--ink-soft: var(--ink);
+	}
+}
