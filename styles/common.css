@@ -55,6 +55,10 @@ body {
 article {
 	margin-inline: auto;
 	max-inline-size: var(--measure);
+
+	p + p {
+		margin-block-start: var(--space);
+	}
 }
 
 /* Footnote markers*/

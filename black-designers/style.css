@@ -5,11 +5,25 @@
 	--ink-soft: #a29d94;
 	--stamp: #e0503f;
 	--ghost: #45423e;	/* the "missing" grey */
+/* spacing */
+	--leading: 1.75;
 }
 h1 {
 	.missing {
 		color: var(--ghost);
 	}
+}
+
+header {
+	hgroup p {
+		font-size: var(--size-base);
+		letter-spacing: normal;
+		text-transform: none;
+	}
+}
+
+.label {
+	margin-block: var(--space-double);
 }
 
 /* For readers who ask for more contrast, the missing words come back */
